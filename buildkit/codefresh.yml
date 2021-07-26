@@ -12,7 +12,7 @@ steps:
   build:
     title: "Building Docker image"
     type: "build"
-    image_name: "saffi-codefresh/tasks"
+    image_name: "safficodefresh/tasks"
     working_directory: "${{clone}}/buildkit"
     tag: "${{CF_BRANCH_TAG_NORMALIZED}}"
     dockerfile: "buildkit/Dockerfile"
