@@ -1,5 +1,9 @@
 version: '1.0'
- 
+stages:
+  - clone
+  - build
+  - test
+     
 steps:
   clone:
     title: "Cloning repository"
