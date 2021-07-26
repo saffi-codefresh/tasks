@@ -3,7 +3,7 @@ stages:
   - clone
   - build
   - test
-     
+
 steps:
   clone:
     title: "Cloning repository"
@@ -19,7 +19,7 @@ steps:
     image_name: "safficodefresh/tasks"
     working_directory: "${{clone}}/buildkit"
     tag: "${{CF_BRANCH_TAG_NORMALIZED}}"
-    dockerfile: "buildkit/Dockerfile"
+    dockerfile: "Dockerfile"
     stage: "build"
     arguments:
       buildkit: true
