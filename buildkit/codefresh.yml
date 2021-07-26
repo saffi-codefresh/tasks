@@ -1,9 +1,30 @@
 version: '1.0'
  
 steps:
-  BuildMyImage:
-    title: Building My Docker image
-    image_name: buildkit-test
-    type: build
+  clone:
+    title: "Cloning repository"
+    type: "git-clone"
+    repo: "saffi-codefresh/tasks"
+    revision: "${{CF_BRANCH}}"
+    git: "github"
+    stage: "clone"
+
+  build:
+    title: "Building Docker image"
+    type: "build"
+    image_name: "saffi-codefresh/tasks"
+    working_directory: "${{clone}}/buildkit"
+    tag: "${{CF_BRANCH_TAG_NORMALIZED}}"
+    dockerfile: "buildkit/Dockerfile"
+    stage: "build"
     arguments:
       buildkit: true
+
+  test:
+    title: "Running test"
+    type: "freestyle" # Run any command
+    image: "alpine" # The image in which command will be executed
+    working_directory: "${{clone}}/buildkit" # Running command where code cloned
+    commands:
+      - "ls -ltr"
+    stage: "test"
