@@ -1,0 +1,9 @@
+version: '1.0'
+ 
+steps:
+  BuildMyImage:
+    title: Building My Docker image
+    image_name: buildkit-test
+    type: build
+    arguments:
+      buildkit: true
