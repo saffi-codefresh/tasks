@@ -4,7 +4,7 @@ steps:
   clone:
     title: "Cloning repository"
     type: "git-clone"
-    repo: "saffi-codefresh/tasks"
+    repo: "safficodefresh/tasks"
     revision: "${{CF_BRANCH}}"
     git: "github"
     stage: "clone"
